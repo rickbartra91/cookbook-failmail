@@ -1,3 +1,4 @@
+# encoding: UTF-8
 #
 # Cookbook Name:: failmail
 # Recipe:: default
@@ -17,6 +18,6 @@
 # limitations under the License.
 #
 
-default['failmail']['from_address'] = "root@#{node.hostname}"
-default['failmail']['to_address'] = "lampert@att.com"
+default['failmail']['from_address'] = 'root@#{node.hostname}'
+default['failmail']['to_address'] = 'lampert@att.com'
 default['failmail']['cc_mail'] = nil

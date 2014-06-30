@@ -1,3 +1,4 @@
+# encoding: UTF-8
 #
 # Cookbook Name:: failmail
 # Recipe:: default
@@ -16,21 +17,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-chef_gem "pony" do
+chef_gem 'pony' do
   action :install
 end
 
 require 'rubygems'
 require 'pony'
 
-include_recipe "chef_handler"
+include_recipe 'chef_handler'
 
-cookbook_file(::File.join(node['chef_handler']['handler_path'], "failmail.rb")).run_action(:create)
+cookbook_file(::File.join(node['chef_handler']['handler_path'], 'failmail.rb')).run_action(:create)
 
-chef_handler "Chef::Handler::SilverLining::FailMail" do
-  source   ::File.join node['chef_handler']['handler_path'], "failmail.rb"
-  supports :report => true
+chef_handler 'Chef::Handler::SilverLining::FailMail' do
+  source ::File.join node['chef_handler']['handler_path'], 'failmail.rb'
+  supports report: true
   arguments [node['failmail']['from_address'], node['failmail']['to_address'], node['failmail']['cc_address']]
   action :enable
 end
-

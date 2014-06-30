@@ -1,0 +1,9 @@
+DEPENDENCIES
+  failmail
+    path: .
+    metadata: true
+
+GRAPH
+  chef_handler (1.1.6)
+  failmail (0.1.0)
+    chef_handler (>= 0.0.0)
